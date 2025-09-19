@@ -2,3 +2,101 @@ syntax on
 
 " Wrap gitcommit file types at the appropriate length
 filetype indent plugin on
+
+set number
+
+set nocompatible
+filetype on
+filetype plugin on
+filetype indent on
+
+set modelines=0
+set nomodeline
+
+set shiftwidth=4 
+set tabstop=4 
+set expandtab
+set nobackup 
+set scrolloff=10
+
+set nowrap 
+set incsearch 
+
+set ignorecase 
+set smartcase 
+
+set showcmd
+set showmode 
+set showmatch 
+set hlsearch 
+
+set history=1000
+set wildmenu 
+set wildmode=list:longest
+
+set fileencoding=utf-8      " Set default file encoding to UTF-8
+set mouse=a                 " Enable mouse support in all modes
+set clipboard=unnamedplus   " Use system clipboard for copy/paste
+set hidden                  " Allow buffer switching without saving
+
+set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
+
+" PLUGINS ---------------------------------------------------------------- {{{
+
+" Plugin code goes here.
+call plug#begin('~/.vim/plugged')
+
+Plug 'morhetz/gruvbox'               " A popular retro groove colorscheme
+Plug 'vim-airline/vim-airline'       " A sleek and featureful status line
+Plug 'vim-airline/vim-airline-themes'
+
+" --- File Navigation & Fuzzy Finding ---
+Plug 'preservim/nerdtree'            " A classic file system explorer
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " A command-line fuzzy finder
+Plug 'junegunn/fzf.vim'              " Vim bindings for fzf
+
+" --- Code Completion & LSP ---
+Plug 'neoclide/coc.nvim', {'branch': 'release'} " The Conquer of Completion, VSCode-like intelligence
+
+" --- Git Integration ---
+Plug 'tpope/vim-fugitive'             " The best Git wrapper of all time
+
+" --- Quality of Life ---
+Plug 'preservim/nerdcommenter'       " Easy code commenting
+Plug 'jiangmiao/auto-pairs'           " Autoclose brackets, parentheses, quotes, etc.
+Plug 'tpope/vim-surround'     
+
+call plug#end()
+
+autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+  \| PlugInstall --sync | source $MYVIMRC
+\| endif
+" }}}
+
+
+" MAPPINGS --------------------------------------------------------------- {{{
+
+" Mappings code goes here.
+
+" }}}
+
+
+" VIMSCRIPT -------------------------------------------------------------- {{{
+
+" This will enable code folding.
+" Use the marker method of folding.
+augroup filetype_vim
+    autocmd!
+    autocmd FileType vim setlocal foldmethod=marker
+augroup END
+
+" More Vimscripts code goes here.
+
+" }}}
+
+
+" STATUS LINE ------------------------------------------------------------ {{{
+
+" Status bar code goes here.
+
+" }}}
