@@ -1,9 +1,3 @@
-Of course. Here is a well-structured README file for your dotfiles repository, incorporating the commands you provided and explaining how it works.
-
-You can copy and paste this directly into a `README.md` file in your repository.
-
------
-
 # tententgc's Dotfiles
 
 These are my personal dotfiles, the configuration files that customize my shell, editor, and overall command-line environment. By keeping them in a Git repository, I can easily set up a new machine and keep my settings synchronized everywhere.
