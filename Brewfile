@@ -14,6 +14,12 @@ brew 'stripe/stripe-cli/stripe'
 brew 'stripe/stripe-mock/stripe-mock'
 brew 'wget'
 brew 'yt-dlp'
+brew 'zsh-autosuggestions'
+brew 'zsh-syntax-highlighting'
+brew 'zsh-history-substring-search'
+brew 'zoxide'
+brew 'starship'
+
 
 cask '1password'
 cask 'airtable'
