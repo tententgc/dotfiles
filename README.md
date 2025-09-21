@@ -2,7 +2,6 @@
 
 These are my personal dotfiles, the configuration files that customize my shell, editor, and overall command-line environment. By keeping them in a Git repository, I can easily set up a new machine and keep my settings synchronized everywhere.
 
-This setup is inspired by Holman's dotfiles and is organized by topic to keep things clean and modular.
 
 -----
 
