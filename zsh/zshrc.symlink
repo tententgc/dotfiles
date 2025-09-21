@@ -53,24 +53,29 @@ autoload -U up-line-or-beginning-search
 autoload -U down-line-or-beginning-search
 autoload -Uz compinit && compinit
 
+
+# ------------------------------------------------------------------------------
+# 🚀 ENHANCED TAB COMPLETION (FUZZY MATCHING & INTERACTIVE MENU)
+# ------------------------------------------------------------------------------
 zstyle ':completion:*' menu select
 zstyle ':completion:*:*:*:*:*' menu select
-
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
-
 zstyle ':completion:*:*:*:*:*' list-colors 'ma=1;34'
-
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 zstyle ':completion:*' completer _complete _correct _approximate
 
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+bindkey "${terminfo[kcuu1]}" history-substring-search-up
+bindkey "${terminfo[kcud1]}" history-substring-search-down
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
-bindkey "^[[A" up-line-or-beginning-search # Up
-bindkey "^[[B" down-line-or-beginning-search # Down
+#bindkey "^[[A" up-line-or-beginning-search # Up
+#bindkey "^[[B" down-line-or-beginning-search # Down
 # source ~/powerlevel10k/powerlevel10k.zsh-theme
-ZSH_THEME="agnoster"
-
+ZSH_THEME="spaceship"
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#83f28f,standout"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -80,8 +85,13 @@ plugins=(
     zsh-autosuggestions
     zsh-syntax-highlighting
 )
+
+
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-echo "source $(brew --prefix)/opt/spaceship/spaceship.zsh" >>! ~/.zshrc
+source $(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+source $(brew --prefix)/share/zsh/site-functions
 source /opt/homebrew/opt/spaceship/spaceship.zsh
+
+eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
