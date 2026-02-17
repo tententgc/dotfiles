@@ -19,7 +19,7 @@ brew 'zsh-syntax-highlighting'
 brew 'zsh-history-substring-search'
 brew 'zoxide'
 brew 'starship'
-
+brew 'pnpm'
 
 cask '1password'
 cask 'airtable'
